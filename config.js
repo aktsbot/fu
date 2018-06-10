@@ -8,5 +8,6 @@
 module.exports = {
   port: 3030,
   uploadLocation: "/home/akts/tmp",
-  defaultFileNamePattern: "file_"
+  defaultFileNamePattern: "file",
+  fileGetEndpoint: "/file"
 };
