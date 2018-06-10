@@ -1,0 +1,21 @@
+{
+  "name": "fu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "nodemon server",
+    "start": "node server"
+  },
+  "keywords": [],
+  "author": "aktsbot",
+  "license": "WTFPL",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-fileupload": "^0.4.0",
+    "global": "^4.3.2",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.17.5"
+  }
+}
