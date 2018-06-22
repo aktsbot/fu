@@ -50,7 +50,12 @@ Connection: keep-alive
 
 - Make a better README
 - Write better code dummy! Write vanilla JS, so as to remove deps
-- Set file size limits
+- ~~Set file size limits~~
 - Make an init script
 - Make it more [thumbor](https://github.com/thumbor/thumbor) - like.
 - Use this as an excuse to do a docker tutorial.
+
+## Changelog
+
+- `package.json` has a `start:cors` field.
+- File size limit. Check [config.js](/config.js)
