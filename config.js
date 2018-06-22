@@ -7,7 +7,8 @@
 
 module.exports = {
   port: 3030,
-  uploadLocation: "/home/akts/tmp",
-  defaultFileNamePattern: "file",
-  fileGetEndpoint: "/file"
+  uploadLocation: '/home/akts/tmp',
+  defaultFileNamePattern: 'file',
+  fileGetEndpoint: '/file',
+  maxFileSizeInMB: 5
 };

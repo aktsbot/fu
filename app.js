@@ -3,6 +3,7 @@ const efup = require('express-fileupload');
 const morgan = require('morgan');
 const app = express();
 const routes = require('./router');
+const config = require('./config');
 
 /*
   for angular dev, the browser shuns us with a CORS error.
@@ -18,7 +19,12 @@ if (process.argv[2] === '--with-cors') {
   });
 }
 
-app.use(efup());
+app.use(
+  efup({
+    limits: { fileSize: config.maxFileSizeInMB * 1024 * 1024 },
+    abortOnLimit: true
+  })
+);
 app.use(morgan('short'));
 app.use(routes);
 
