@@ -1,6 +1,6 @@
-const rs = require("randomstring");
-const path = require("path");
-const config = require("./config");
+const rs = require('randomstring');
+const path = require('path');
+const config = require('./config');
 
 let getHealth = async (req, res) => {
   try {
@@ -8,13 +8,14 @@ let getHealth = async (req, res) => {
   } catch (e) {
     console.log(e);
     console.log(`[server] get health end point met an error`);
+    return res.status(500).send(`server error`);
   }
 };
 
 let uploadFile = async (req, res) => {
   try {
     if (!req.files) {
-      return res.status(400).send("Payload not found!");
+      return res.status(400).send('Payload not found!');
     }
 
     let payload = req.files.payload;
@@ -40,14 +41,12 @@ let uploadFile = async (req, res) => {
      * for saving all files uploaded to our server
      * newFileName will have a value similar to line 25
      */
-    const newFileName = `${
-      config.defaultFileNamePattern
-    }_${randomExtension}${payloadExtension}`;
+    const newFileName = `${config.defaultFileNamePattern}_${randomExtension}${payloadExtension}`;
 
     // we move the new file to the default server upload location
     let mvStat = payload.mv(`${config.uploadLocation}/${newFileName}`);
     if (!mvStat) {
-      return res.status(500).send("error");
+      return res.status(500).send('error');
     }
 
     /**
@@ -56,11 +55,12 @@ let uploadFile = async (req, res) => {
      * The location is send via the header, as I wanted
      * fu to replicate thumbor's default behaviour *sigh*
      */
-    res.set("Location", `${config.fileGetEndpoint}/${newFileName}`);
-    return res.status(200).send("success");
+    res.set('Location', `${config.fileGetEndpoint}/${newFileName}`);
+    return res.status(200).send('success');
   } catch (e) {
     console.log(e);
     console.log(`[server] upload file end point met an error`);
+    return res.status(500).send(`server error`);
   }
 };
 
