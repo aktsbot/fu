@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start:dev": "nodemon server",
+    "start:cors": "node server --with-cors",
     "start": "node server"
   },
   "keywords": [],
